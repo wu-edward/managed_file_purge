@@ -1,0 +1,7 @@
+managed_file_purge.admin:
+  path: '/admin/config/development/performance/purge/managed_file'
+  defaults:
+    _title: 'Managed File Purge'
+    _form: 'Drupal\managed_file_purge\Form\SettingsForm'
+  requirements:
+    _permission: 'administer site configuration'

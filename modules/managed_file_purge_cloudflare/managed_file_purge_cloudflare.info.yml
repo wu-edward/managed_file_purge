@@ -1,0 +1,8 @@
+name: Managed file purge CloudFlare Purger
+type: module
+description: Manged file purge CloudFlare CDN integration.
+core_version_requirement: ^8 || ^9
+package: Purge - reverse proxies & CDNs
+dependencies:
+  - cloudflare:cloudflarepurger
+  - managed_file_purge:managed_file_purge

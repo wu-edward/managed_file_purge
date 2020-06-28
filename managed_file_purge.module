@@ -1,0 +1,43 @@
+<?php
+
+/**
+ * @file
+ * Hooks and other function for the Managed file purge module.
+ */
+
+use Drupal\file\FileInterface;
+
+/**
+ * Implements hook_ENTITY_TYPE_inset().
+ */
+function managed_file_purge_file_insert(FileInterface $file) {
+  // Invalidate the URL for a new file. This is to account for the case that a
+  // managed file was created with a URL that was previously cached somehow.
+  if (!$file->isTemporary()) {
+    \Drupal::service('managed_file_purge.invalidate_file_url')
+      ->invalidateFileUrl($file);
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update().
+ */
+function managed_file_purge_file_update(FileInterface $file) {
+  // Invalidate the URL when file is updated. This is to account for any time
+  // the file data the file entity refers to is changed via some other module
+  // code.
+  if (!$file->isTemporary()) {
+    \Drupal::service('managed_file_purge.invalidate_file_url')
+      ->invalidateFileUrl($file);
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_delete().
+ */
+function managed_file_purge_file_delete(FileInterface $file) {
+  // Invalidate file URL after it is deleted so that deleted contents do not
+  // persist in caches.
+  \Drupal::service('managed_file_purge.invalidate_file_url')
+    ->invalidateFileUrl($file);
+}

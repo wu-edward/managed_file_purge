@@ -1,0 +1,4 @@
+managed_file_purge.admin:
+  title: 'Managed File Purge'
+  route_name: managed_file_purge.admin
+  base_route: system.performance_settings

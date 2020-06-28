@@ -1,0 +1,16 @@
+{
+    "name": "drupal/managed_file_purge",
+    "type": "drupal-module",
+    "description": "Provides a generic external cache invalidation API and queue service for managed file URLs.",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": ">=7.2",
+        "drupal/core": "^8.7.7 || ^9",
+        "drupal/purge": "^3.0.0"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-8.x-1.x": "1.x-dev"
+        }
+    }
+}

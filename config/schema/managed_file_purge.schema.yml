@@ -1,0 +1,11 @@
+# Schema for the configuration files of the Managed file purge module.
+
+managed_file_purge.settings:
+  type: config_object
+  label: 'Settings'
+  mapping:
+    cdn_base_urls:
+      type: sequence
+      label: 'CDN Base URLs'
+      sequence:
+        type: url

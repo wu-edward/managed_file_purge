@@ -1,0 +1,4 @@
+services:
+  managed_file_purge.invalidate_file_url:
+    class: Drupal\managed_file_purge\FileUrlInvalidator
+    arguments: ['@config.factory', '@purge.invalidation.factory', '@purge.queuers', '@purge.queue', '@logger.factory']
